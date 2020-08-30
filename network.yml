@@ -1,6 +1,14 @@
 Description: >
     Rufin Hounkpe / Udacity 2020
     This template deploys a VPC
+Parameters:
+    EnvironmentName:
+        Description: An environment name that will be prefixed to resourcesses
+        Type: String
+    VpcCIDR:
+        Description: Please enter the IP range ()CIDR notation for this
+        Type: String
+        Default: 10.0.0.0/16
 Resources:
     VPC:
         Type: AWS::EC2::VPC
