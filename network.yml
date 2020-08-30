@@ -1,17 +1,20 @@
 Description: >
-    Rufin Hounkpe / Udacity 2020
-    This template deploys a VPC
+  Rufin Hounkpe / Udacity 2020
+  This template deploys a VPC
 Parameters:
-    EnvironmentName:
-        Description: An environment name that will be prefixed to resourcesses
-        Type: String
-    VpcCIDR:
-        Description: Please enter the IP range ()CIDR notation for this
-        Type: String
-        Default: 10.0.0.0/16
+  EnvironmentName:
+    Description: An environment name that will be prefixed to resourcesses
+    Type: String
+  VpcCIDR:
+    Description: Please enter the IP range ()CIDR notation for this
+    Type: String
+    Default: 10.0.0.0/16
 Resources:
-    VPC:
-        Type: AWS::EC2::VPC
-        Properties:
-            CidrBlock: 10.0.0.0/16
-            EnableDnsHostnames: true
+  VPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: !Ref VpcCIDR
+      EnableDnsHostnames: true
+      Tags:
+        - Key: Name
+          Value: !Ref EnvironmentName
